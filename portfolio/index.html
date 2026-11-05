@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portofolio — Andra Sakti Pragata</title>
+<meta name="description" content="Portofolio Andra Sakti Pragata — Social Media Specialist, SEO Content Writer, Creative Director, dan Wedding Event Crew dari Semarang. Fresh graduate D3 Teknik Informatika Polines." />
+
+<!-- Favicon: asterisk khas hero -->
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%2308080c"/><g stroke="%23b3a6ff" stroke-width="5" stroke-linecap="round"><path d="M32 10v44M10 32h44M17 17l30 30M47 17L17 47"/></g></svg>' />
+
+<!-- ✏️ Open Graph (preview saat link dibagikan) — sudah memakai domain final hiandra.netlify.app -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hiandra.netlify.app/" />
+<meta property="og:title" content="Portofolio — Andra Sakti Pragata" />
+<meta property="og:description" content="Social Media Specialist, SEO Content Writer & Creative Director dari Semarang. Fresh graduate D3 Teknik Informatika Polines — hey, i'm andra sakti." />
+<meta property="og:image" content="https://hiandra.netlify.app/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="canonical" href="https://hiandra.netlify.app/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   ✏️ PENGATURAN CEPAT — warna & font lewat variabel di bawah
+   ============================================================ */
+:root{
+  --bg:      #050509;
+  --text:    #f4f3f0;
+  --muted:   #b4b4c0;
+  --accent:  #b3a6ff;
+  --ok:      #34d399;
+  --glass:   rgba(255,255,255,.065);
+  --glass-2: rgba(255,255,255,.1);
+  --gbrd:    rgba(255,255,255,.16);
+  --f-disp:  'Syne', 'Segoe UI', sans-serif;
+  --f-body:  'Inter', 'Segoe UI', sans-serif;
+  --f-mono:  'JetBrains Mono', 'Consolas', monospace;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top:110px; }
+body{
+  font-family:var(--f-body); background:var(--bg); color:var(--text);
+  line-height:1.7; overflow-x:hidden;
+}
+::selection{ background:var(--accent); color:#0a0a12; }
+::-webkit-scrollbar{ width:9px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.16); border-radius:99px; }
+::-webkit-scrollbar-thumb:hover{ background:rgba(255,255,255,.28); }
+
+.container{ max-width:1140px; margin:0 auto; padding:0 24px; }
+
+/* ===== kaca liquid: permukaan inti ===== */
+.glass{
+  position:relative;
+  background:linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.035));
+  backdrop-filter:blur(26px) saturate(170%);
+  -webkit-backdrop-filter:blur(26px) saturate(170%);
+  border:1px solid var(--gbrd);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 -1px 0 rgba(255,255,255,.05),
+    0 24px 60px rgba(0,0,0,.5);
+  overflow:hidden;
+}
+/* kilau spesular di sudut atas + sapuan cahaya saat hover */
+.glass::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(420px 200px at 12% 0%, rgba(255,255,255,.16), transparent 60%);
+}
+.glass-sheen::after{
+  content:""; position:absolute; inset:-40%; pointer-events:none;
+  background:linear-gradient(105deg, transparent 42%, rgba(255,255,255,.13) 50%, transparent 58%);
+  transform:translateX(-160%) rotate(4deg);
+  transition:transform 1s cubic-bezier(.22,1,.36,1);
+}
+.glass-sheen:hover::after{ transform:translateX(160%) rotate(4deg); }
+
+/* tekstur grain sangat halus */
+.grain{
+  position:fixed; inset:-50%; z-index:98; pointer-events:none; opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 7s steps(8) infinite;
+}
+@keyframes grain{
+  0%,100%{ transform:translate(0,0); } 20%{ transform:translate(-3%,2%); }
+  40%{ transform:translate(2%,-3%); } 60%{ transform:translate(-2%,-2%); } 80%{ transform:translate(3%,3%); }
+}
+
+/* ===== orb ambient warna — sumber "cahaya" untuk kaca ===== */
+.orbs{ position:fixed; inset:0; z-index:-2; pointer-events:none; overflow:hidden; }
+.orbs i{ position:absolute; border-radius:50%; filter:blur(90px); opacity:.5; }
+.orbs i:nth-child(1){ width:560px; height:560px; background:#6a4dff; top:-140px; left:-120px;
+  animation:drift1 24s ease-in-out infinite alternate; }
+.orbs i:nth-child(2){ width:460px; height:460px; background:#2f6bff; top:32%; right:-160px;
+  animation:drift2 30s ease-in-out infinite alternate; }
+.orbs i:nth-child(3){ width:400px; height:400px; background:#e04fb0; bottom:-120px; left:16%;
+  animation:drift3 27s ease-in-out infinite alternate; opacity:.34; }
+.orbs i:nth-child(4){ width:300px; height:300px; background:#ffb36b; bottom:22%; right:22%;
+  animation:drift1 33s ease-in-out infinite alternate-reverse; opacity:.2; }
+@keyframes drift1{ from{ transform:translate(0,0) scale(1); } to{ transform:translate(90px,70px) scale(1.15); } }
+@keyframes drift2{ from{ transform:translate(0,0) scale(1.1); } to{ transform:translate(-80px,-60px) scale(.95); } }
+@keyframes drift3{ from{ transform:translate(0,0) scale(.95); } to{ transform:translate(70px,-80px) scale(1.12); } }
+.bg-grid{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:64px 64px;
+}
+
+/* progress baca */
+#prog{
+  position:fixed; top:0; left:0; height:2px; width:100%; z-index:210;
+  background:linear-gradient(90deg, var(--accent), #fff);
+  transform-origin:0 50%; transform:scaleX(0);
+}
+
+/* kursor kustom */
+#cur,#curRing{ position:fixed; top:0; left:0; z-index:999; pointer-events:none;
+  border-radius:50%; transform:translate(-50%,-50%); display:none; }
+#cur{ width:7px; height:7px; background:var(--accent); box-shadow:0 0 12px rgba(179,166,255,.8); }
+#curRing{ width:34px; height:34px; border:1px solid rgba(255,255,255,.35);
+  transition:width .25s, height .25s, border-color .25s, opacity .25s; }
+#curRing.hov{ width:58px; height:58px; border-color:var(--accent); }
+html.cur-on body, html.cur-on a, html.cur-on button,
+html.cur-on input, html.cur-on textarea, html.cur-on .gallery-item{ cursor:none; }
+html.cur-on #cur, html.cur-on #curRing{ display:block; }
+@media (pointer:coarse){ #cur,#curRing{ display:none !important; } }
+
+/* ===== reveal ===== */
+.reveal{ transition:opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1); }
+.reveal.pre{ opacity:0; transform:translateY(30px); }
+.reveal.show{ opacity:1; transform:none; }
+.d1{ transition-delay:.08s; } .d2{ transition-delay:.16s; } .d3{ transition-delay:.24s; }
+
+/* ===== NAVBAR — pill kaca melayang ala iOS ===== */
+nav{
+  position:fixed; top:16px; left:0; right:0; z-index:150;
+  display:flex; justify-content:center; pointer-events:none;
+}
+.nav-inner{
+  pointer-events:auto; overflow:visible;
+  display:flex; align-items:center; gap:18px;
+  padding:9px 10px 9px 24px; border-radius:99px;
+}
+.nav-inner.glass{ box-shadow:
+  inset 0 1px 0 rgba(255,255,255,.22),
+  0 18px 50px rgba(0,0,0,.55); }
+.logo{
+  font-family:var(--f-disp); font-weight:800; font-size:1.25rem;
+  color:var(--text); text-decoration:none; letter-spacing:.5px;
+}
+.logo i{ font-style:normal; color:var(--accent); }
+.nav-links{ display:flex; gap:2px; list-style:none; align-items:center; }
+.nav-links a{
+  font-family:var(--f-mono); font-size:.68rem; font-weight:500;
+  letter-spacing:1.6px; text-transform:uppercase;
+  color:var(--muted); text-decoration:none; padding:9px 13px; border-radius:99px;
+  transition:color .25s, background .25s;
+}
+.nav-links a:hover{ color:var(--text); background:rgba(255,255,255,.08); }
+.nav-links a.active{ color:var(--text); background:rgba(255,255,255,.12); }
+.nav-cta{
+  border:1px solid rgba(255,255,255,.35) !important;
+  color:var(--text) !important; transition:.25s;
+}
+.nav-cta:hover{ background:var(--text); color:#0a0a12 !important; }
+.hamburger{ display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:8px; }
+.hamburger span{ width:22px; height:2px; background:var(--text); transition:.3s; }
+.hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ===== HERO ===== */
+.hero{ min-height:100vh; display:flex; align-items:center; position:relative; padding:150px 0 90px; }
+.hero-meta{
+  font-family:var(--f-mono); font-size:.68rem; letter-spacing:2.5px;
+  text-transform:uppercase; margin-bottom:30px;
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  animation:riseIn .8s cubic-bezier(.22,1,.36,1) both;
+}
+.hero-meta > span{ color:var(--muted); }
+.hero-meta .avail{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 16px; border-radius:99px; color:var(--text);
+}
+.hero-meta .avail i{ width:7px; height:7px; border-radius:50%; background:var(--ok);
+  box-shadow:0 0 10px var(--ok); animation:pulse 2s infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+.hero-hi{
+  font-family:'Caveat', cursive; font-size:clamp(2.2rem, 4.5vw, 3.2rem);
+  color:var(--accent); line-height:1; margin-bottom:8px;
+  display:inline-block; transform:rotate(-2deg); transform-origin:left bottom;
+  animation:fadeUp .8s ease .05s both;
+}
+.hero-name{ font-family:var(--f-disp); text-transform:uppercase; line-height:.95; }
+.hero-name .line{ display:block; overflow:hidden; }
+.hero-name .line > span{
+  display:inline-block; font-size:clamp(3rem, 9.5vw, 6.8rem); font-weight:800;
+  letter-spacing:-1.5px; animation:riseIn 1s cubic-bezier(.22,1,.36,1) both;
+  text-shadow:0 0 60px rgba(179,166,255,.25);
+}
+@keyframes riseIn{ from{ transform:translateY(110%); } to{ transform:translateY(0); } }
+.spin-ast{
+  position:absolute; top:26%; right:7%; width:92px; height:92px; color:var(--accent);
+  opacity:.9; animation:spin 16s linear infinite; pointer-events:none;
+  filter:drop-shadow(0 0 18px rgba(179,166,255,.5));
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.typing-wrap{
+  display:inline-flex; align-items:center; margin-top:30px;
+  font-family:var(--f-mono); font-size:clamp(.85rem, 2vw, 1.05rem);
+  border-radius:99px; padding:11px 20px; min-height:0;
+  animation:fadeUp .8s ease .5s both;
+}
+.typing-wrap .pre{ color:var(--accent); margin-right:9px; }
+#typing{ color:var(--text); }
+.cursor{ display:inline-block; width:8px; height:1.05em; background:var(--accent);
+  margin-left:6px; animation:blink 1s step-end infinite; }
+@keyframes blink{ 50%{ opacity:0; } }
+.hero p.lead{
+  max-width:540px; color:var(--muted); font-size:1.02rem; margin-top:22px;
+  animation:fadeUp .8s ease .62s both;
+}
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
+.hero-actions{ display:flex; gap:13px; margin-top:36px; flex-wrap:wrap; animation:fadeUp .8s ease .74s both; }
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--f-mono); font-size:.72rem; font-weight:700;
+  letter-spacing:1.8px; text-transform:uppercase; text-decoration:none; cursor:pointer;
+  padding:15px 30px; border-radius:99px; border:1px solid transparent;
+  transition:transform .2s, background .25s, color .25s, border-color .25s, box-shadow .25s;
+}
+.btn-solid{ background:var(--text); color:#0a0a12; box-shadow:0 14px 40px rgba(255,255,255,.14); }
+.btn-solid:hover{ background:var(--accent); color:#0a0a12; box-shadow:0 16px 46px rgba(179,166,255,.35); }
+.btn-line{ background:var(--glass); color:var(--text); border-color:var(--gbrd);
+  backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); }
+.btn-line:hover{ border-color:var(--accent); color:var(--accent); }
+.hero-socials{ display:flex; gap:10px; margin-top:38px; animation:fadeUp .8s ease .86s both; }
+.hero-socials a{
+  width:44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  color:var(--muted); transition:.25s;
+}
+.hero-socials a:hover{ color:var(--text); transform:translateY(-4px); }
+.hero-socials svg{ width:18px; height:18px; fill:currentColor; }
+.hero-socials svg.stroke{ fill:none; stroke:currentColor; stroke-width:1.8; }
+.scroll-hint{
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:10px; text-decoration:none;
+  font-family:var(--f-mono); font-size:.62rem; letter-spacing:3px; color:var(--muted);
+  animation:fadeUp .8s ease 1s both;
+}
+.scroll-hint .s-line{ width:1px; height:44px; background:rgba(255,255,255,.18); position:relative; overflow:hidden; }
+.scroll-hint .s-line::after{ content:""; position:absolute; left:0; top:-40%; width:1px; height:40%;
+  background:var(--accent); animation:sline 1.8s ease-in-out infinite; }
+@keyframes sline{ to{ top:115%; } }
+
+/* ===== MARQUEE ===== */
+.marquee{
+  overflow:hidden; padding:16px 0; margin:10px 24px; border-radius:99px;
+}
+.marquee-track{ display:flex; width:max-content; animation:marq 26s linear infinite; }
+.marquee-track:hover{ animation-play-state:paused; }
+.marquee-track span{
+  font-family:var(--f-disp); font-weight:700; font-size:1.3rem; text-transform:uppercase;
+  letter-spacing:1px; white-space:nowrap; padding-right:2.2rem; color:var(--muted);
+}
+.marquee-track b{ color:var(--text); font-weight:700; }
+.marquee-track i{ font-style:normal; color:var(--accent); }
+.marquee-track .out{ color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.4); }
+@keyframes marq{ to{ transform:translateX(-50%); } }
+
+/* ===== SECTION umum ===== */
+section{ padding:110px 0; }
+.sec-head{ display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.sec-index{ font-family:var(--f-mono); font-size:.72rem; color:var(--accent); letter-spacing:1px; }
+.sec-label{
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:3px; text-transform:uppercase;
+  color:var(--muted); display:flex; align-items:center; gap:12px;
+}
+.sec-label::after{ content:""; width:44px; height:1px; background:rgba(255,255,255,.25); }
+h2.section-title{
+  font-family:var(--f-disp); font-size:clamp(1.9rem, 4.5vw, 3rem);
+  font-weight:800; letter-spacing:-1px; line-height:1.08; margin-bottom:14px;
+}
+h2.section-title em{ font-style:normal; color:var(--accent); }
+.section-desc{ color:var(--muted); max-width:600px; font-size:1rem; }
+
+/* ===== TENTANG ===== */
+.about-grid{ display:grid; grid-template-columns:320px 1fr; gap:64px; align-items:center; margin-top:56px; }
+.photo-frame{ position:relative; width:300px; margin:0 auto; border-radius:24px; }
+.photo-frame img{
+  width:100%; aspect-ratio:1; object-fit:cover; display:block;
+  border-radius:24px; transition:transform .6s cubic-bezier(.22,1,.36,1);
+}
+.photo-frame:hover img{ transform:scale(1.02) rotate(-1deg); }
+.photo-frame .fr{ position:absolute; width:22px; height:22px; border:2px solid var(--accent); z-index:2; }
+.photo-frame .fr.tl{ top:-8px; left:-8px; border-right:0; border-bottom:0; }
+.photo-frame .fr.tr{ top:-8px; right:-8px; border-left:0; border-bottom:0; }
+.photo-frame .fr.bl{ bottom:-8px; left:-8px; border-right:0; border-top:0; }
+.photo-frame .fr.br{ bottom:-8px; right:-8px; border-left:0; border-top:0; }
+.photo-chip{
+  position:absolute; bottom:-14px; left:50%; transform:translateX(-50%);
+  font-family:var(--f-mono); font-size:.62rem; letter-spacing:2px;
+  border-radius:99px; padding:8px 17px; white-space:nowrap; color:var(--text); z-index:2;
+}
+.about-text p{ color:var(--muted); margin-bottom:16px; text-align:justify; }
+.about-text p strong{ color:inherit; font-weight:600; }
+.about-text p strong.wt{ color:var(--text); }
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:36px; }
+.stat{ border-radius:18px; padding:20px 18px; text-align:center; }
+.stat .num{ font-family:var(--f-disp); font-size:2.1rem; font-weight:800; color:var(--text); line-height:1.15; }
+.stat .num b{ color:var(--accent); font-weight:800; }
+.stat .lbl{ font-family:var(--f-mono); font-size:.62rem; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+/* ===== PENGALAMAN ===== */
+.timeline{ display:grid; gap:18px; margin-top:60px; }
+.t-card{ border-radius:22px; padding:26px 28px; transition:border-color .3s, transform .3s; }
+.t-card:hover{ transform:translateX(6px); }
+.t-idx{ font-family:var(--f-mono); font-size:.68rem; color:var(--accent); letter-spacing:1px; }
+.t-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:14px; flex-wrap:wrap; margin-top:6px; }
+.t-role{ font-family:var(--f-disp); font-size:1.2rem; font-weight:700; }
+.t-company{ font-family:var(--f-mono); font-size:.74rem; color:var(--muted); margin-top:4px; letter-spacing:.5px; }
+.t-badge{
+  font-family:var(--f-mono); font-size:.62rem; letter-spacing:1.5px; text-transform:uppercase;
+  padding:7px 14px; border-radius:99px; white-space:nowrap;
+  border:1px solid rgba(255,255,255,.3); color:var(--text);
+  background:rgba(255,255,255,.07);
+}
+.t-badge.blue{ border-color:rgba(143,184,242,.55); color:#9cc3f5; }
+.t-badge.pink{ border-color:rgba(240,163,196,.55); color:#f4aed0; }
+.t-desc{ color:var(--muted); font-size:.94rem; margin-top:14px; }
+.t-desc ul{ list-style:none; display:grid; gap:8px; }
+.t-desc li{ padding-left:20px; position:relative; }
+.t-desc li::before{ content:"+"; position:absolute; left:0; color:var(--text); font-family:var(--f-mono); }
+.t-desc li strong{ color:var(--text); }
+.t-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+.t-tags span{
+  font-family:var(--f-mono); font-size:.62rem; letter-spacing:1px; text-transform:uppercase;
+  color:var(--muted); padding:6px 12px; border:1px solid rgba(255,255,255,.18);
+  border-radius:99px; background:rgba(255,255,255,.05);
+}
+
+/* ===== PROYEK ===== */
+.filters{ display:flex; gap:8px; flex-wrap:wrap; margin-top:44px; }
+.filter{
+  font-family:var(--f-mono); font-size:.68rem; letter-spacing:1.5px; text-transform:uppercase;
+  padding:10px 19px; border-radius:99px; cursor:pointer;
+  background:var(--glass); border:1px solid var(--gbrd); color:var(--muted);
+  backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%);
+  transition:.25s;
+}
+.filter:hover{ color:var(--text); border-color:var(--accent); }
+.filter.active{ background:var(--text); color:#0a0a12; border-color:var(--text); }
+.projects-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px; margin-top:36px; perspective:1200px; }
+.project-card{
+  border-radius:22px; padding:26px; display:flex; flex-direction:column; gap:13px;
+  transition:border-color .3s, transform .3s, box-shadow .3s;
+  transform-style:preserve-3d; will-change:transform;
+  animation:cardIn .45s cubic-bezier(.22,1,.36,1);
+}
+@keyframes cardIn{ from{ opacity:0; transform:scale(.96); } to{ opacity:1; transform:scale(1); } }
+.project-card:hover{ border-color:rgba(255,255,255,.32); box-shadow:0 30px 70px rgba(0,0,0,.55); }
+.p-top{ display:flex; justify-content:space-between; align-items:center; }
+.p-idx{ font-family:var(--f-mono); font-size:.68rem; color:var(--accent); letter-spacing:1px; }
+.p-cat{
+  font-family:var(--f-mono); font-size:.6rem; letter-spacing:2px;
+  text-transform:uppercase; color:var(--muted);
+}
+.p-arrow{
+  position:absolute; top:20px; right:22px; color:var(--accent);
+  font-family:var(--f-mono); font-size:1.05rem; opacity:0; transform:translate(-6px,6px);
+  transition:.3s;
+}
+.project-card:hover .p-arrow{ opacity:1; transform:translate(0,0); }
+.p-title{ font-family:var(--f-disp); font-size:1.15rem; font-weight:700; }
+.p-desc{ color:var(--muted); font-size:.9rem; flex:1; }
+.p-tags{ display:flex; gap:7px; flex-wrap:wrap; }
+.p-tags span{
+  font-family:var(--f-mono); font-size:.6rem; letter-spacing:1px; text-transform:uppercase;
+  color:var(--muted); padding:6px 11px; border:1px solid rgba(255,255,255,.18);
+  border-radius:99px; background:rgba(255,255,255,.05);
+}
+.p-impact{
+  font-family:var(--f-mono); font-size:.74rem; color:var(--text);
+  padding-top:14px; border-top:1px solid rgba(255,255,255,.14);
+}
+.p-impact b{ color:var(--accent); font-weight:500; margin-right:6px; }
+.p-link{
+  display:block; width:max-content;
+  font-family:var(--f-mono); font-size:.66rem; letter-spacing:1.2px; text-transform:uppercase;
+  color:var(--accent); text-decoration:none; margin-top:2px;
+}
+.p-link:hover{ text-decoration:underline; }
+.gallery-item[data-href]{ cursor:pointer; }
+.empty-note{ color:var(--muted); font-size:.9rem; text-align:center; padding:30px 0 6px; display:none; grid-column:1/-1; }
+
+/* ===== GALERI ===== */
+.gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:44px; }
+.gallery-item{
+  position:relative; overflow:hidden; border-radius:20px; margin:0;
+  border:1px solid var(--gbrd); cursor:zoom-in;
+  aspect-ratio:4/3; box-shadow:0 18px 44px rgba(0,0,0,.45);
+}
+.gallery-item img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transform:scale(1.1); transition:transform .9s cubic-bezier(.22,1,.36,1);
+}
+.gallery-item.show img{ transform:scale(1); }
+.gallery-item:hover img{ transform:scale(1.06); }
+.gallery-item::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 58%, rgba(3,3,7,.66)); pointer-events:none; }
+.gallery-cap{
+  position:absolute; left:14px; bottom:12px; z-index:2;
+  font-family:var(--f-mono); font-size:.64rem; letter-spacing:1.2px; text-transform:uppercase;
+  color:var(--text); padding:8px 14px; border-radius:99px;
+  background:rgba(10,10,16,.5); border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(16px) saturate(160%); -webkit-backdrop-filter:blur(16px) saturate(160%);
+  transition:transform .3s;
+}
+.gallery-item:hover .gallery-cap{ transform:translateX(5px); }
+.gallery-cap b{ color:var(--accent); font-weight:500; margin-right:7px; }
+.gallery-cat{
+  position:absolute; top:12px; right:12px; z-index:2;
+  font-family:var(--f-mono); font-size:.56rem; letter-spacing:1.5px; text-transform:uppercase;
+  padding:6px 11px; border-radius:99px; border:1px solid rgba(255,255,255,.28);
+  background:rgba(6,6,10,.5); color:var(--text);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+}
+.gallery-item.video{ cursor:pointer; }
+.gallery-play{ position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+.gallery-play i{
+  width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.92);
+  display:flex; align-items:center; justify-content:center; transition:transform .3s;
+  box-shadow:0 12px 32px rgba(0,0,0,.5);
+}
+.gallery-item:hover .gallery-play i{ transform:scale(1.12); }
+.gallery-play i::after{
+  content:""; margin-left:4px;
+  border-left:14px solid #0a0a12; border-top:9px solid transparent; border-bottom:9px solid transparent;
+}
+.g-sub{
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:3px; text-transform:uppercase;
+  color:var(--muted); margin-top:56px; margin-bottom:18px;
+  display:flex; align-items:center; gap:12px;
+}
+.g-sub::after{ content:""; flex:1; height:1px; background:rgba(255,255,255,.2); }
+.video-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.video-row .gallery-item{ aspect-ratio:9/16; }
+#lightbox{
+  position:fixed; inset:0; z-index:300; display:flex; align-items:center; justify-content:center;
+  padding:24px; background:rgba(3,3,8,.85);
+  backdrop-filter:blur(30px) saturate(150%); -webkit-backdrop-filter:blur(30px) saturate(150%);
+  opacity:0; pointer-events:none; transition:opacity .35s;
+}
+#lightbox.open{ opacity:1; pointer-events:auto; }
+#lightbox img{
+  max-width:min(1000px, 92vw); max-height:82vh; border-radius:22px;
+  border:1px solid var(--gbrd); transform:scale(.94); transition:transform .35s;
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+#lightbox.open img{ transform:scale(1); }
+#lightbox .lb-cap{
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:1px; text-transform:uppercase;
+  color:var(--text); padding:10px 20px; border-radius:99px;
+  background:rgba(10,10,16,.55); border:1px solid var(--gbrd); white-space:nowrap;
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+}
+@media (max-width:768px){
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  .video-row{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  .gallery-cap{ font-size:.56rem; left:10px; bottom:8px; }
+}
+
+/* ===== KEAHLIAN ===== */
+.skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:52px; }
+.skill-card{ border-radius:22px; padding:28px; transition:border-color .3s; }
+.skill-card:hover{ border-color:rgba(255,255,255,.3); }
+.skill-card h3{
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--accent); margin-bottom:20px; font-weight:500;
+}
+.tag-cloud{ display:flex; flex-wrap:wrap; gap:9px; }
+.tag-cloud span{
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.5px;
+  padding:10px 16px; border-radius:14px;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16);
+  color:var(--text); transition:.3s; cursor:default;
+  opacity:0; transform:translateY(10px) scale(.94);
+}
+.skill-card.show .tag-cloud span{ opacity:1; transform:none; }
+.tag-cloud span:nth-child(1){ transition-delay:.05s; } .tag-cloud span:nth-child(2){ transition-delay:.1s; }
+.tag-cloud span:nth-child(3){ transition-delay:.15s; } .tag-cloud span:nth-child(4){ transition-delay:.2s; }
+.tag-cloud span:nth-child(5){ transition-delay:.25s; } .tag-cloud span:nth-child(6){ transition-delay:.3s; }
+.tag-cloud span:nth-child(7){ transition-delay:.35s; } .tag-cloud span:nth-child(8){ transition-delay:.4s; }
+.tag-cloud span:nth-child(9){ transition-delay:.45s; } .tag-cloud span:nth-child(10){ transition-delay:.5s; }
+.tag-cloud span:hover{
+  background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.35);
+  transform:translateY(-3px) scale(1.03);
+}
+.skill-edu li strong{ color:var(--text); }
+
+/* ===== KONTAK ===== */
+.contact-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:18px; margin-top:52px; }
+.contact-info{ display:flex; flex-direction:column; gap:14px; }
+.contact-item{
+  display:flex; align-items:center; gap:16px;
+  border-radius:18px; padding:19px 22px; transition:.25s; text-decoration:none; color:inherit;
+}
+.contact-item:hover{ transform:translateY(-3px); border-color:rgba(255,255,255,.32); }
+.c-icon{
+  width:44px; height:44px; border-radius:13px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.08); border:1px solid var(--gbrd);
+}
+.c-icon svg{ width:19px; height:19px; fill:none; stroke:var(--accent); stroke-width:1.8; }
+.contact-item .c-lbl{ font-family:var(--f-mono); font-size:.58rem; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
+.contact-item .c-val{ font-weight:600; font-size:.94rem; margin-top:2px; }
+.contact-form{ border-radius:22px; padding:30px; }
+.contact-form h3{ font-family:var(--f-disp); font-size:1.3rem; margin-bottom:6px; }
+.contact-form > p{ color:var(--muted); font-size:.9rem; margin-bottom:22px; }
+.form-group{ margin-bottom:15px; }
+.form-group label{ display:block; font-family:var(--f-mono); font-size:.6rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; color:var(--muted); }
+.form-group input, .form-group textarea{
+  width:100%; padding:13px 16px; border-radius:12px;
+  background:rgba(255,255,255,.06); border:1px solid var(--gbrd);
+  color:var(--text); font-family:var(--f-body); font-size:.92rem; transition:.25s;
+}
+.form-group input::placeholder, .form-group textarea::placeholder{ color:rgba(255,255,255,.3); }
+.form-group input:focus, .form-group textarea:focus{
+  outline:none; border-color:var(--accent); background:rgba(255,255,255,.09);
+}
+.form-group textarea{ resize:vertical; min-height:120px; }
+.form-note{ font-family:var(--f-mono); font-size:.62rem; color:var(--muted); margin-top:12px; }
+
+/* CTA besar */
+.cta-banner{
+  margin-top:72px; text-align:center; border-radius:26px;
+  padding:64px 32px; position:relative;
+}
+.cta-banner::after{
+  content:""; position:absolute; top:-60px; right:-60px; width:190px; height:190px;
+  border:1px solid rgba(255,255,255,.25); border-radius:50%; pointer-events:none;
+}
+.cta-banner h3{
+  font-family:var(--f-disp); font-size:clamp(1.7rem, 4vw, 2.7rem);
+  font-weight:800; letter-spacing:-1px; line-height:1.1; position:relative;
+}
+.cta-banner h3 em{ font-style:normal; color:var(--accent); }
+.cta-banner p{ color:var(--muted); max-width:460px; margin:14px auto 30px; position:relative; }
+
+/* ===== FOOTER ===== */
+footer{ padding:26px 0; }
+.foot-grid{
+  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+  font-family:var(--f-mono); font-size:.64rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted);
+  border-radius:20px; padding:20px 28px;
+}
+.foot-grid .fc{ color:var(--accent); }
+
+/* back to top */
+#toTop{
+  position:fixed; right:22px; bottom:22px; z-index:90;
+  width:46px; height:46px; border-radius:16px; border:1px solid var(--gbrd);
+  background:var(--glass); backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  color:var(--text); font-family:var(--f-mono); font-size:1rem;
+  cursor:pointer; opacity:0; pointer-events:none; transition:.3s;
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+}
+#toTop.visible{ opacity:1; pointer-events:auto; }
+#toTop:hover{ background:var(--accent); color:#0a0a12; border-color:var(--accent); transform:translateY(-3px); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .about-grid{ grid-template-columns:1fr; gap:44px; }
+  .photo-frame{ width:260px; }
+  .skills-grid{ grid-template-columns:1fr; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .stats{ gap:12px; }
+  .spin-ast{ display:none; }
+}
+@media (max-width: 860px){
+  .hamburger{ display:flex; }
+  .nav-inner{ gap:10px; padding:8px 10px 8px 20px; width:calc(100% - 32px); justify-content:space-between; }
+  .nav-links{
+    position:absolute; top:calc(100% + 12px); left:-8px; right:-8px; flex-direction:column;
+    align-items:stretch; border-radius:22px; padding:14px; gap:2px;
+    background:rgba(10,10,16,.78);
+    backdrop-filter:blur(26px) saturate(160%); -webkit-backdrop-filter:blur(26px) saturate(160%);
+    border:1px solid var(--gbrd); box-shadow:0 24px 60px rgba(0,0,0,.55);
+    transform:translateY(-16px) scale(.98); opacity:0; pointer-events:none;
+    transition:transform .35s cubic-bezier(.22,1,.36,1), opacity .3s;
+  }
+  .nav-links.open{ transform:translateY(0) scale(1); opacity:1; pointer-events:auto; }
+  .nav-links a{ display:block; padding:13px 18px; font-size:.74rem; }
+  .nav-cta{ margin:6px 0 0; text-align:center; }
+  section{ padding:80px 0; }
+  .hero{ padding-top:140px; }
+  .stats{ grid-template-columns:repeat(3,1fr); }
+  .stat{ padding:16px 10px; }
+  .stat .num{ font-size:1.6rem; }
+  .scroll-hint{ display:none; }
+  .cta-banner{ padding:46px 22px; }
+  .foot-grid{ flex-direction:column; text-align:center; }
+}
+@media (max-width: 480px){
+  .projects-grid{ grid-template-columns:1fr; }
+  .t-card{ padding:22px; }
+  .contact-form{ padding:24px; }
+  .hero-name .line > span{ font-size:2.75rem; }
+}
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .reveal.pre{ opacity:1; transform:none; }
+  .gallery-item img{ transform:none; }
+  .tag-cloud span{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<noscript><style>.reveal.pre{opacity:1;transform:none}.gallery-item img{transform:none}.tag-cloud span{opacity:1;transform:none}#cur,#curRing,#prog{display:none}</style></noscript>
+
+<div class="orbs"><i></i><i></i><i></i><i></i></div>
+<div class="bg-grid"></div>
+<div class="grain"></div>
+<div id="prog"></div>
+<div id="cur"></div><div id="curRing"></div>
+
+<!-- ================= NAVBAR — pill kaca melayang ================= -->
+<nav id="nav">
+  <div class="nav-inner glass">
+    <a href="#beranda" class="logo">ASP<i>.</i></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#beranda" class="active">Beranda</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#pengalaman">Pengalaman</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#kontak" class="nav-cta">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="beranda">
+  <div class="container">
+    <div class="hero-meta">
+      <span>Portfolio</span><span>/</span>
+      <span class="avail glass"><i></i>Terbuka untuk full-time · internship · freelance</span>
+    </div>
+    <p class="hero-hi">hey, i'm</p>
+    <h1 class="hero-name">
+      <span class="line"><span style="animation-delay:.12s">Andra Sakti</span></span>
+    </h1>
+    <svg class="spin-ast" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+      <path d="M50 6v88M6 50h88M19 19l62 62M81 19L19 81"/>
+    </svg>
+    <!-- ✏️ GANTI daftar peran di script JS bawah (variabel ROLES) -->
+    <div class="typing-wrap glass"><span class="pre">&gt;&gt;</span><span id="typing"></span><span class="cursor"></span></div>
+    <p class="lead">
+      <!-- ✏️ Sudah diisi dari datamu — ubah lagi kalau perlu -->
+      Fresh graduate D3 Teknik Informatika yang berkarya di persimpangan logika dan
+      kreativitas — dari strategi media sosial, konten SEO peringkat atas Google,
+      sampai eksekusi live event yang cekat.
+    </p>
+    <div class="hero-actions">
+      <a href="#proyek" class="btn btn-solid">Lihat Proyek ↓</a>
+      <!-- ✏️ CV: file CV-Andra-Sakti-Pragata.pdf di folder ini — ganti filenya untuk update CV -->
+      <a href="CV-Andra-Sakti-Pragata.pdf?v=2" class="btn btn-line" download>Download CV ↓</a>
+      <a href="#kontak" class="btn btn-line">Hubungi Saya</a>
+    </div>
+    <!-- ✏️ Sosial media: ganti/tambah link sesuai kebutuhan -->
+    <div class="hero-socials">
+      <a href="https://instagram.com/andraskti" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg class="stroke" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/andra-sakti-4a56b1448/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+      </a>
+      <a href="mailto:andrasakti05@gmail.com" aria-label="Email" title="Email">
+        <svg class="stroke" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+      </a>
+    </div>
+  </div>
+  <a href="#tentang" class="scroll-hint"><span class="s-line"></span><span>Scroll</span></a>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><b>Social Media Strategy</b> <i>/</i> <span class="out">SEO Content Writing</span> <i>/</i> <b>Creative Direction</b> <i>/</i> <span class="out">Content Production</span> <i>/</i> <b>Event Execution</b> <i>/</i> <span class="out">Brand Visual</span> <i>/</i> </span>
+    <span><b>Social Media Strategy</b> <i>/</i> <span class="out">SEO Content Writing</span> <i>/</i> <b>Creative Direction</b> <i>/</i> <span class="out">Content Production</span> <i>/</i> <b>Event Execution</b> <i>/</i> <span class="out">Brand Visual</span> <i>/</i> </span>
+  </div>
+</div>
+
+<!-- ================= TENTANG ================= -->
+<section id="tentang">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">(01)</span><span class="sec-label">Tentang Saya</span></div>
+    <h2 class="section-title reveal d1">Kenalan dulu, <em>yuk.</em></h2>
+
+    <div class="about-grid">
+      <div class="photo-frame reveal d1">
+        <!-- ✏️ FOTO: file foto-andra.jpg di folder ini — ganti filenya untuk mengganti foto -->
+        <img src="foto-andra.jpg" alt="Foto Andra Sakti Pragata">
+        <i class="fr tl"></i><i class="fr tr"></i><i class="fr bl"></i><i class="fr br"></i>
+        <span class="photo-chip glass">Semarang</span>
+      </div>
+
+      <div class="about-text reveal d2">
+        <p>
+          <!-- ✏️ Sudah diisi dari datamu — ubah lagi kalau perlu -->
+          Halo! Saya <strong class="wt">Andra Sakti Pragata</strong>, fresh graduate <strong class="wt">D3 Teknik Informatika</strong>
+          <strong class="wt">Politeknik Negeri Semarang</strong> (IPK 3.72) dengan minat mendalam di bidang
+          <strong>multimedia, konten digital, dan strategi media sosial</strong>.
+        </p>
+        <p>
+          Minat itu saya bawa ke praktik: magang sebagai <strong>Social Media Specialist &amp;
+          SEO Content Writer</strong> di CV Nore Inovasi — mengelola konten produk
+          <strong>Hotely.id</strong> dengan beberapa artikel menembus <strong>peringkat atas
+          Google</strong>, menjadi <strong>Creative Director</strong> part-time di PT. Royal
+          Kreasi Sinergi, serta aktif sebagai <strong>crew wedding &amp; event organizer</strong>
+          sekaligus dokumentasi media. Kombinasi logika teknis IT, kemampuan riset, dan
+          eksekusi kreatif itulah yang saya tawarkan.
+        </p>
+        <p>
+          Saya juga paham tren-tren yang sedang berjalan di internet — dari format konten,
+          audio, sampai meme — sehingga bisa cepat menyesuaikan konten yang masih
+          <strong>hot atau berpeluang viral</strong>.
+        </p>
+        <div class="stats">
+          <!-- ✏️ Angka statistik — sesuaikan kalau perlu -->
+          <div class="stat glass glass-sheen"><div class="num"><span class="count" data-count="2">0</span><b>+</b></div><div class="lbl">Tahun Pengalaman</div></div>
+          <div class="stat glass glass-sheen"><div class="num">3.72</div><div class="lbl">IPK · Teknik Informatika</div></div>
+          <div class="stat glass glass-sheen"><div class="num"><span class="count" data-count="3">0</span></div><div class="lbl">Peran Profesional</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PENGALAMAN ================= -->
+<section id="pengalaman">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">(02)</span><span class="sec-label">Perjalanan Karier</span></div>
+    <h2 class="section-title reveal d1">Pengalaman <em>Saya.</em></h2>
+    <p class="section-desc reveal d2">Dari kampus teknik informatika sampai lapangan live event — logika teknis, riset, dan eksekusi kreatif dalam satu perjalanan.</p>
+
+    <div class="timeline">
+      <!-- ✏️ Sudah diisi dari datamu — urutan: terbaru di atas -->
+      <div class="t-item reveal">
+        <div class="t-card glass glass-sheen">
+          <span class="t-idx">01</span>
+          <div class="t-head">
+            <div>
+              <div class="t-role">Creative Director</div>
+              <div class="t-company">PT. Royal Kreasi Sinergi · Ngesrep, Banyumanik</div>
+            </div>
+            <span class="t-badge">Mar — Sep 2026 · Part Time</span>
+          </div>
+          <div class="t-desc">
+            <ul>
+              <li>Merancang strategi media sosial, content calendar, dan storyboard untuk kebutuhan promosi digital perusahaan.</li>
+              <li>Memproduksi konten visual serta video pendek menggunakan Canva dan CapCut, dilengkapi copywriting yang komunikatif.</li>
+              <li>Membangun brand awareness dan menjaga konsistensi visual branding melalui riset tren serta analisis perilaku audiens.</li>
+            </ul>
+          </div>
+          <div class="t-tags"><span>Strategi Konten</span><span>Content Calendar</span><span>Canva</span><span>CapCut</span></div>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-card glass glass-sheen">
+          <span class="t-idx">02</span>
+          <div class="t-head">
+            <div>
+              <div class="t-role">Social Media Specialist &amp; SEO Content Writer</div>
+              <div class="t-company">CV Nore Inovasi · Semarang Barat</div>
+            </div>
+            <span class="t-badge blue">Agu — Des 2025 · Internship</span>
+          </div>
+          <div class="t-desc">
+            <ul>
+              <li>Mengelola konten <strong>Hotely.id</strong> — produk Property Management System (PMS) untuk hotel hasil kerja sama Nore Innovation × PT Hano Solusi Digital: menyusun konten plan, pengambilan video, editing video, dan editing postingan feeds.</li>
+              <li>Menulis copywriting artikel berbasis SEO sebagai bahan publikasi blog Hotely.id.</li>
+              <li>Beberapa artikel berhasil terdeteksi di peringkat atas Google (antara lain kata kunci "tipe kamar hotel" dan "hotel termahal di indonesia").</li>
+            </ul>
+          </div>
+          <div class="t-tags"><span>SEO</span><span>Video Editing</span><span>Copywriting</span><span>Content Planning</span></div>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-card glass glass-sheen">
+          <span class="t-idx">03</span>
+          <div class="t-head">
+            <div>
+              <div class="t-role">Wedding &amp; Event Organizer — Crew &amp; Media Documentation</div>
+              <div class="t-company">PT. Royal Kreasi Sinergi · Ngesrep, Banyumanik</div>
+            </div>
+            <span class="t-badge pink">2024 — Sekarang · Freelance</span>
+          </div>
+          <div class="t-desc">
+            <ul>
+              <li>Menjaga kelancaran alur acara di lapangan: persiapan teknis, koordinasi antarvendor, pendampingan klien, hingga pengawasan rundown agar tepat waktu.</li>
+              <li>Sering mengambil foto dan video saat event berlangsung maupun kegiatan lainnya di PT. Royal Kreasi Sinergi, untuk kebutuhan konten media sosial.</li>
+              <li>Bekerja cekatan di bawah tekanan tinggi (live event), tanggap menyelesaikan kendala di lapangan, serta mengasah komunikasi dan kerja sama tim.</li>
+            </ul>
+          </div>
+          <div class="t-tags"><span>Live Event</span><span>Koordinasi Vendor</span><span>Dokumentasi</span><span>Kerja Sama Tim</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROYEK ================= -->
+<section id="proyek">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">(03)</span><span class="sec-label">Karya Terpilih</span></div>
+    <h2 class="section-title reveal d1">Proyek &amp; <em>Portofolio.</em></h2>
+    <p class="section-desc reveal d2">Beberapa karya yang paling menggambarkan cara saya bekerja — dari layar ponsel sampai venue pernikahan.</p>
+
+    <div class="filters reveal d2">
+      <button class="filter active" data-f="all">Semua</button>
+      <button class="filter" data-f="sosmed">Media Sosial</button>
+      <button class="filter" data-f="event">Event</button>
+      <button class="filter" data-f="seo">Konten &amp; SEO</button>
+    </div>
+
+    <!-- ✏️ Sudah diisi dari datamu — tambah/kurangi card sesuka hati.
+         data-cat harus cocok dengan data-f di tombol filter: sosmed | seo | event -->
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card glass glass-sheen" data-cat="sosmed">
+        <div class="p-top"><span class="p-idx">P.01</span><span class="p-cat">Media Sosial</span></div>
+        <span class="p-arrow">↗</span>
+        <div class="p-title">Strategi &amp; Kalender Konten</div>
+        <div class="p-desc">Merancang strategi media sosial, content calendar, dan storyboard untuk kebutuhan promosi digital PT. Royal Kreasi Sinergi.</div>
+        <div class="p-tags"><span>Content Calendar</span><span>Storyboard</span><span>Copywriting</span></div>
+        <div class="p-impact"><b>→</b> Brand awareness &amp; konsistensi visual terjaga</div>
+      </div>
+
+      <div class="project-card glass glass-sheen" data-cat="sosmed">
+        <div class="p-top"><span class="p-idx">P.02</span><span class="p-cat">Media Sosial</span></div>
+        <span class="p-arrow">↗</span>
+        <div class="p-title">Produksi Konten Visual &amp; Video Pendek</div>
+        <div class="p-desc">Memproduksi konten visual serta video pendek promosi digital menggunakan Canva dan CapCut — dari konsep sampai publikasi.</div>
+        <div class="p-tags"><span>Canva</span><span>CapCut</span></div>
+        <div class="p-impact"><b>→</b> Konten promosi terpublikasi konsisten</div>
+        <a class="p-link" href="https://www.instagram.com/royalorganizer.official/" target="_blank" rel="noopener">Instagram Royal Organizer ↗</a>
+      </div>
+
+      <div class="project-card glass glass-sheen" data-cat="seo">
+        <div class="p-top"><span class="p-idx">P.03</span><span class="p-cat">Konten &amp; SEO</span></div>
+        <span class="p-arrow">↗</span>
+        <div class="p-title">Artikel SEO Peringkat Atas</div>
+        <div class="p-desc">Riset kata kunci &amp; artikel SEO untuk blog Hotely.id (PMS hotel dari Nore Inovasi × PT Hano Solusi Digital) — antara lain "tipe kamar hotel" dan "hotel termahal di indonesia".</div>
+        <div class="p-tags"><span>Riset Keyword</span><span>On-Page SEO</span></div>
+        <div class="p-impact"><b>→</b> Peringkat atas Google, di atas detikTravel &amp; Traveloka</div>
+        <!-- ✏️ GANTI dengan link artikel lain kalau sudah punya yang lebih baru -->
+        <a class="p-link" href="https://hotely.id/mengenal-tipe-kamar-hotel-dan-fasilitasnya/" target="_blank" rel="noopener">Artikel: tipe kamar hotel ↗</a>
+        <a class="p-link" href="https://hotely.id/3-hotel-termahal-di-indonesia-kemewahan-yang-bikin-takjub/" target="_blank" rel="noopener">Artikel: hotel termahal di indonesia ↗</a>
+      </div>
+
+      <div class="project-card glass glass-sheen" data-cat="seo">
+        <div class="p-top"><span class="p-idx">P.04</span><span class="p-cat">Konten &amp; SEO</span></div>
+        <span class="p-arrow">↗</span>
+        <div class="p-title">Produksi Konten Lengkap Hotely.id</div>
+        <div class="p-desc">Memproduksi konten produk Hotely.id dari awal sampai akhir: konten plan, pengambilan video, editing video, editing postingan feeds, dan copywriting artikel.</div>
+        <div class="p-tags"><span>Konten Plan</span><span>Video Editing</span><span>Copywriting</span></div>
+        <div class="p-impact"><b>→</b> Reach &amp; engagement meningkat signifikan</div>
+        <a class="p-link" href="https://hotely.id/" target="_blank" rel="noopener">Lihat hotely.id ↗</a>
+        <a class="p-link" href="https://www.instagram.com/hotely.id/" target="_blank" rel="noopener">Instagram Hotely.id ↗</a>
+      </div>
+
+      <div class="project-card glass glass-sheen" data-cat="event">
+        <div class="p-top"><span class="p-idx">P.05</span><span class="p-cat">Event</span></div>
+        <span class="p-arrow">↗</span>
+        <div class="p-title">Eksekusi Wedding &amp; Live Event</div>
+        <div class="p-desc">Menjaga kelancaran alur acara: persiapan teknis, koordinasi antarvendor, pendampingan klien, dan pengawasan rundown.</div>
+        <div class="p-tags"><span>Rundown</span><span>Koordinasi Vendor</span><span>Pendampingan Klien</span></div>
+        <div class="p-impact"><b>→</b> Acara tepat waktu di bawah tekanan live</div>
+      </div>
+
+      <div class="project-card glass glass-sheen" data-cat="event">
+        <div class="p-top"><span class="p-idx">P.06</span><span class="p-cat">Event</span></div>
+        <span class="p-arrow">↗</span>
+        <div class="p-title">Dokumentasi Foto &amp; Video Real-Time</div>
+        <div class="p-desc">Mengambil foto dan video saat acara wedding berlangsung maupun kegiatan lainnya di PT. Royal Kreasi Sinergi — siap dipakai untuk konten media sosial.</div>
+        <div class="p-tags"><span>Fotografi</span><span>Videografi</span></div>
+        <div class="p-impact"><b>→</b> Momen penting terdokumentasi &amp; siap posting</div>
+      </div>
+
+      <p class="empty-note" id="emptyNote">Belum ada proyek di kategori ini.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERI KEGIATAN ================= -->
+<section id="galeri">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">(04)</span><span class="sec-label">Dokumentasi</span></div>
+    <h2 class="section-title reveal d1">Galeri <em>Kegiatan.</em></h2>
+    <p class="section-desc reveal d2">Di balik setiap konten dan acara ada proses — ini cuplikan momen di lapangan. Klik foto untuk memperbesar, klik reels untuk membuka video.</p>
+
+    <!-- ✏️ GALERI: foto = galeri-1..9.jpg, reels = reels-1/2.jpg (folder ini).
+         Kategori: 1-2 Creative Director, 3-7 Magang Nore, 8-9 Crew Event. -->
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal">
+        <img src="galeri-1.jpg" alt="Content calendar Royal di Notion — perencanaan konten mingguan klien">
+        <span class="gallery-cat">Creative Director</span>
+        <figcaption class="gallery-cap"><b>01</b>Content calendar Royal</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d1">
+        <img src="galeri-2.jpg" alt="Feed Instagram Royal Organizer yang saya kelola">
+        <span class="gallery-cat">Creative Director</span>
+        <figcaption class="gallery-cap"><b>02</b>Feeds IG Royal Organizer</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d2">
+        <img src="galeri-3.jpg" alt="Produksi konten Hotely.id di CV Nore Inovasi">
+        <span class="gallery-cat">Magang Nore</span>
+        <figcaption class="gallery-cap"><b>03</b>Produksi konten Hotely.id</figcaption>
+      </figure>
+      <figure class="gallery-item reveal">
+        <img src="galeri-4.jpg" alt="Pengambilan video konten media sosial Hotely.id">
+        <span class="gallery-cat">Magang Nore</span>
+        <figcaption class="gallery-cap"><b>04</b>Take video konten</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d1">
+        <img src="galeri-5.jpg" alt="Grid reels Instagram Hotely.id yang saya kelola">
+        <span class="gallery-cat">Magang Nore</span>
+        <figcaption class="gallery-cap"><b>05</b>Feeds IG Hotely.id</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d2" data-href="https://hotely.id/mengenal-tipe-kamar-hotel-dan-fasilitasnya/">
+        <img src="galeri-6.jpg" alt="Artikel Hotely.id menempati peringkat atas Google untuk kata kunci tipe kamar hotel">
+        <span class="gallery-cat">Magang Nore</span>
+        <figcaption class="gallery-cap"><b>06</b>Peringkat atas: "tipe kamar hotel"</figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-href="https://hotely.id/3-hotel-termahal-di-indonesia-kemewahan-yang-bikin-takjub/">
+        <img src="galeri-7.jpg" alt="Artikel Hotely.id peringkat atas Google untuk kata kunci hotel termahal di indonesia">
+        <span class="gallery-cat">Magang Nore</span>
+        <figcaption class="gallery-cap"><b>07</b>Peringkat atas: "hotel termahal di indonesia"</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d1">
+        <img src="galeri-8.jpg" alt="Bersama tim crew Royal Organizer dan pengantin di lokasi resepsi">
+        <span class="gallery-cat">Crew Event</span>
+        <figcaption class="gallery-cap"><b>08</b>Crew wedding organizer</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d2">
+        <img src="galeri-9.jpg" alt="Bersama tim crew Royal Organizer di lokasi acara">
+        <span class="gallery-cat">Crew Event</span>
+        <figcaption class="gallery-cap"><b>09</b>Tim crew wedding</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="g-sub">Reels &amp; Video</h3>
+    <div class="video-row">
+      <figure class="gallery-item video reveal" data-href="https://www.instagram.com/reel/DYCb7Q7yc2g/">
+        <img src="reels-1.jpg?v=2" alt="Reels konten Royal Kreasi Sinergi — venue outdoor">
+        <span class="gallery-cat">Creative Director</span>
+        <span class="gallery-play"><i></i></span>
+        <figcaption class="gallery-cap"><b>▶</b>Reels Royal #1</figcaption>
+      </figure>
+      <figure class="gallery-item video reveal d1" data-href="https://www.instagram.com/p/DXeQP4yEsG2/">
+        <img src="reels-2.jpg?v=2" alt="Video konten Royal Kreasi Sinergi — venue wedding outdoor">
+        <span class="gallery-cat">Creative Director</span>
+        <span class="gallery-play"><i></i></span>
+        <figcaption class="gallery-cap"><b>▶</b>Video Royal #2</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KEAHLIAN ================= -->
+<section id="keahlian">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">(05)</span><span class="sec-label">Perkakas &amp; Talenta</span></div>
+    <h2 class="section-title reveal d1">Keahlian <em>Saya.</em></h2>
+
+    <div class="skills-grid">
+      <div class="skill-card glass glass-sheen reveal d1">
+        <h3>/ Tools &amp; Software</h3>
+        <div class="tag-cloud">
+          <!-- ✏️ Tambahkan tools lain yang kamu kuasai -->
+          <span>Canva</span><span>CapCut</span>
+          <span>TikTok Analytics</span><span>Google Workspace</span>
+          <span>Microsoft Office</span>
+        </div>
+      </div>
+
+      <div class="skill-card glass glass-sheen reveal d2">
+        <h3>/ Soft Skills</h3>
+        <div class="tag-cloud">
+          <span>Komunikasi</span><span>Kerja Sama Tim</span><span>Bekerja di Bawah Tekanan</span>
+          <span>Problem Solving</span><span>Cekat &amp; Tanggap</span><span>Riset &amp; Analisis</span><span>Sensitif Trend</span><span>Manajemen Waktu</span>
+        </div>
+      </div>
+
+      <div class="skill-card glass glass-sheen reveal d3" style="grid-column:1/-1;">
+        <h3>/ Pendidikan</h3>
+        <div class="t-desc skill-edu" style="margin-top:0;">
+          <ul>
+            <li><strong>D3 Teknik Informatika</strong> — Politeknik Negeri Semarang (2023–2026), IPK 3.72</li>
+            <li>Fokus: multimedia, konten digital &amp; strategi media sosial</li>
+            <li>Kampus: Tembalang, Kota Semarang</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAK ================= -->
+<section id="kontak">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">(06)</span><span class="sec-label">Mari Terhubung</span></div>
+    <h2 class="section-title reveal d1">Hubungi <em>Saya.</em></h2>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal d1">
+        <a class="contact-item glass glass-sheen" href="CV-Andra-Sakti-Pragata.pdf?v=2" download>
+          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 3v11m0 0 4.5-4.5M12 14 7.5 9.5M4.5 19.5h15"/></svg></div>
+          <div><div class="c-lbl">Curriculum Vitae</div><div class="c-val">Unduh CV (PDF) ↓</div></div>
+        </a>
+        <a class="contact-item glass glass-sheen" href="mailto:andrasakti05@gmail.com">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></div>
+          <div><div class="c-lbl">Email</div><div class="c-val">andrasakti05@gmail.com</div></div>
+        </a>
+        <a class="contact-item glass glass-sheen" href="https://wa.me/62895707167716" target="_blank" rel="noopener">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M21.5 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-6.2A8.5 8.5 0 1 1 21.5 11.5z"/><path d="M8.5 9.5c.5 2.5 3.5 5.5 6 6l1.5-1.5 2.5 1"/></svg></div>
+          <div><div class="c-lbl">WhatsApp</div><div class="c-val">+62 895-7071-67716</div></div>
+        </a>
+        <div class="contact-item glass glass-sheen">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><div class="c-lbl">Domisili</div><div class="c-val">Semarang, Jawa Tengah</div></div>
+        </div>
+      </div>
+
+      <!-- Form ini membuka aplikasi email (mailto) dengan isi pesan yang sudah terisi.
+           ✏️ GANTI alamat email di script JS bawah (variabel EMAIL_TUJUAN) -->
+      <form class="contact-form glass reveal d2" id="contactForm">
+        <h3>Kirim Pesan</h3>
+        <p>Punya proyek, lowongan, atau sekadar ingin menyapa? Tulis di sini.</p>
+        <div class="form-group">
+          <label for="fNama">Nama</label>
+          <input id="fNama" name="nama" type="text" placeholder="Nama kamu" required />
+        </div>
+        <div class="form-group">
+          <label for="fEmail">Email</label>
+          <input id="fEmail" name="email" type="email" placeholder="email@kamu.com" required />
+        </div>
+        <div class="form-group">
+          <label for="fPesan">Pesan</label>
+          <textarea id="fPesan" name="pesan" placeholder="Halo, saya tertarik untuk..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid" style="width:100%; justify-content:center;">Kirim Pesan →</button>
+        <p class="form-note">*Form akan membuka aplikasi email kamu dengan pesan yang sudah terisi otomatis.</p>
+      </form>
+    </div>
+
+    <div class="cta-banner glass glass-sheen reveal">
+      <h3>Punya ide atau peluang? <em>Mari wujudkan bersama.</em></h3>
+      <p>Saya selalu antusias untuk proyek kreatif, kolaborasi konten, atau kesempatan karier baru.</p>
+      <a href="mailto:andrasakti05@gmail.com" class="btn btn-solid">Kirim Email Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid glass">
+      <p>© 2026 Andra Sakti Pragata</p>
+      <p>Semarang · <span id="clock">--:--</span> WIB</p>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox galeri -->
+<div id="lightbox"><img id="lbImg" src="" alt="Foto diperbesar"><div class="lb-cap" id="lbCap"></div></div>
+
+<button id="toTop" aria-label="Kembali ke atas">↑</button>
+
+<script>
+/* ============================================================
+   ✏️ DATA YANG PERLU KAMU GANTI
+   ============================================================ */
+const EMAIL_TUJUAN = "andrasakti05@gmail.com"; // ← email tujuan form kontak
+const ROLES = [                          // ← peran yang tampil berputar di hero
+  "Social Media Specialist",
+  "SEO Content Writer",
+  "Creative Director",
+  "Wedding & Event Crew"
+];
+
+/* ---------- efek ketik ---------- */
+const typingEl = document.getElementById("typing");
+let ri = 0, ci = 0, deleting = false;
+(function tick(){
+  const word = ROLES[ri];
+  if (!deleting){
+    ci++;
+    typingEl.textContent = word.slice(0, ci);
+    if (ci === word.length){ deleting = true; setTimeout(tick, 1700); return; }
+    setTimeout(tick, 85);
+  } else {
+    ci--;
+    typingEl.textContent = word.slice(0, ci);
+    if (ci === 0){ deleting = false; ri = (ri + 1) % ROLES.length; setTimeout(tick, 350); return; }
+    setTimeout(tick, 38);
+  }
+})();
+
+/* ---------- kursor kustom (hanya perangkat ber-mouse) ---------- */
+if (matchMedia("(pointer:fine)").matches){
+  document.documentElement.classList.add("cur-on");
+  const cur = document.getElementById("cur");
+  const ring = document.getElementById("curRing");
+  let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
+  addEventListener("mousemove", e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx + "px"; cur.style.top = my + "px";
+  });
+  (function loop(){
+    rx += (mx - rx) * .16; ry += (my - ry) * .16;
+    ring.style.left = rx + "px"; ring.style.top = ry + "px";
+    requestAnimationFrame(loop);
+  })();
+  document.addEventListener("mouseover", e => {
+    ring.classList.toggle("hov", !!e.target.closest("a,button,.gallery-item,input,textarea"));
+  });
+}
+
+/* ---------- parallax orb latar mengikuti mouse + scroll ---------- */
+let orbY = 0;
+addEventListener("mousemove", e => {
+  document.body.style.setProperty("--mx", (e.clientX/innerWidth - .5).toFixed(3));
+  document.body.style.setProperty("--my", (e.clientY/innerHeight - .5).toFixed(3));
+});
+const orbsEl = document.querySelector(".orbs");
+function orbScroll(){
+  orbY += ((window.scrollY * -.05) - orbY) * .08;
+  orbsEl.style.transform = `translateY(${orbY.toFixed(1)}px)`;
+}
+
+/* ---------- tombol magnetik ---------- */
+if (matchMedia("(pointer:fine)").matches){
+  document.querySelectorAll(".btn").forEach(b => {
+    b.addEventListener("mousemove", e => {
+      const r = b.getBoundingClientRect();
+      b.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.18}px, ${(e.clientY-r.top-r.height/2)*.3}px)`;
+    });
+    b.addEventListener("mouseleave", () => b.style.transform = "");
+  });
+}
+
+/* ---------- kartu proyek: tilt 3D halus ---------- */
+if (matchMedia("(pointer:fine)").matches){
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `rotateY(${px*7}deg) rotateX(${-py*7}deg) translateY(-4px)`;
+    });
+    card.addEventListener("mouseleave", () => card.style.transform = "");
+  });
+}
+
+/* ---------- jam lokal footer (WIB) ---------- */
+const clockEl = document.getElementById("clock");
+function tickClock(){
+  clockEl.textContent = new Intl.DateTimeFormat("id-ID",
+    { hour:"2-digit", minute:"2-digit", timeZone:"Asia/Jakarta" }).format(new Date());
+}
+tickClock(); setInterval(tickClock, 15000);
+
+/* ---------- navbar + progress + link aktif ---------- */
+const nav = document.getElementById("nav");
+const prog = document.getElementById("prog");
+const sections = [...document.querySelectorAll("section[id], header[id]")];
+const links = [...document.querySelectorAll(".nav-links a")];
+function onScroll(){
+  orbScroll();
+  const doc = document.documentElement;
+  prog.style.transform = `scaleX(${doc.scrollTop / (doc.scrollHeight - doc.clientHeight || 1)})`;
+  const y = window.scrollY + 160;
+  let current = sections[0]?.id;
+  for (const s of sections){ if (s.offsetTop <= y) current = s.id; }
+  links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
+  toTop.classList.toggle("visible", window.scrollY > 500);
+}
+window.addEventListener("scroll", onScroll, { passive:true });
+
+/* ---------- menu mobile ---------- */
+const burger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+burger.addEventListener("click", () => {
+  burger.classList.toggle("open");
+  navLinks.classList.toggle("open");
+});
+navLinks.addEventListener("click", e => {
+  if (e.target.tagName === "A"){ burger.classList.remove("open"); navLinks.classList.remove("open"); }
+});
+
+/* ---------- animasi reveal saat scroll ---------- */
+const revealEls = [...document.querySelectorAll(".reveal")];
+const inView = el => el.getBoundingClientRect().top < window.innerHeight * 0.96;
+// elemen di bawah layar disembunyikan dulu, lalu muncul saat discroll
+revealEls.forEach(el => { if (!inView(el)) el.classList.add("pre"); });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting){
+      en.target.classList.add("show");
+      io.unobserve(en.target);
+    }
+  });
+}, { threshold: .1, rootMargin: "0px 0px -40px 0px" });
+revealEls.forEach(el => io.observe(el));
+// jaring pengaman: tetap tampilkan elemen yang sudah masuk layar saat discroll
+function revealCheck(){
+  revealEls.forEach(el => {
+    if (!el.classList.contains("show") && inView(el)) el.classList.add("show");
+  });
+}
+window.addEventListener("scroll", revealCheck, { passive:true });
+revealCheck();
+
+/* ---------- animasi angka statistik ---------- */
+const ioCount = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target, target = +el.dataset.count, t0 = performance.now();
+    (function step(t){
+      const p = Math.min((t - t0) / 1300, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+    ioCount.unobserve(el);
+  });
+}, { threshold: .35 });
+document.querySelectorAll(".count").forEach(el => ioCount.observe(el));
+
+/* ---------- filter proyek ---------- */
+const filterBtns = document.querySelectorAll(".filter");
+const cards = document.querySelectorAll(".project-card");
+const emptyNote = document.getElementById("emptyNote");
+filterBtns.forEach(btn => btn.addEventListener("click", () => {
+  filterBtns.forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  const f = btn.dataset.f;
+  let visible = 0;
+  cards.forEach(c => {
+    const show = f === "all" || c.dataset.cat === f;
+    c.style.display = show ? "" : "none";
+    if (show) visible++;
+  });
+  emptyNote.style.display = visible ? "none" : "block";
+}));
+
+/* ---------- lightbox galeri ---------- */
+const lb = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbCap = document.getElementById("lbCap");
+document.querySelectorAll(".gallery-item").forEach(item => {
+  item.addEventListener("click", () => {
+    // slot video: buka link video (jika sudah diisi), bukan lightbox
+    if (item.dataset.href){ window.open(item.dataset.href, "_blank", "noopener"); return; }
+    const img = item.querySelector("img");
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = img.alt;
+    lb.classList.add("open");
+  });
+});
+lb.addEventListener("click", () => lb.classList.remove("open"));
+document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+/* ---------- form kontak → mailto ---------- */
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const subject = `Halo dari portofolio — ${d.get("nama")}`;
+  const body = `Nama: ${d.get("nama")}\nEmail: ${d.get("email")}\n\n${d.get("pesan")}`;
+  location.href = `mailto:${EMAIL_TUJUAN}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* ---------- kembali ke atas ---------- */
+const toTop = document.getElementById("toTop");
+toTop.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
+
+onScroll();
+</script>
+</body>
+</html>
